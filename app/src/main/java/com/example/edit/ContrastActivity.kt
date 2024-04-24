@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Canvas
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
+import android.graphics.Matrix
 import android.graphics.Paint
 import android.media.MediaScannerConnection
 import android.net.Uri
@@ -60,8 +61,16 @@ class ContrastActivity : AppCompatActivity() {
     }
 
     private fun adjustContrast(progress: Int): Bitmap {
+
         // Carregar a imagem original
-        val bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
+        var bitmap = BitmapFactory.decodeStream(contentResolver.openInputStream(imageUri))
+
+        // Verificar se a imagem está na orientação correta
+        if (bitmap.width > bitmap.height) {
+            val matrix = Matrix()
+            matrix.postRotate(90f)
+            bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        }
 
         // Criar uma matriz de cores para ajustar o contraste
         val colorMatrix = ColorMatrix()
