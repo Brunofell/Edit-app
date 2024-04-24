@@ -59,6 +59,21 @@ class EditImageActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnGrayScale).setOnClickListener {
             applyGrayScale()
         }
+
+        findViewById<Button>(R.id.btnBrightness).setOnClickListener {
+            val intent = Intent(this, BrightActivity::class.java)
+            intent.putExtra("imageUri", imageUri.toString())
+            startActivity(intent)
+        }
+
+        // Adiciona o clique do botão Contraste
+        findViewById<Button>(R.id.btnContrast).setOnClickListener {
+            navigateToContrastActivity()
+        }
+
+
+
+
     }
 
     //FILTRO NEGATIVO
@@ -120,6 +135,8 @@ class EditImageActivity : AppCompatActivity() {
         // Retornar à tela inicial
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+
+
     }
 
 
@@ -190,6 +207,18 @@ class EditImageActivity : AppCompatActivity() {
         return grayBitmap
     }
 
+
+    // BRILHO
+
+
+    // Contraste
+
+    // Adiciona essa função para redirecionar para a tela de contraste
+    private fun navigateToContrastActivity() {
+        val intent = Intent(this, ContrastActivity::class.java)
+        intent.putExtra("imageUri", imageUri.toString())
+        startActivity(intent)
+    }
 
 
 

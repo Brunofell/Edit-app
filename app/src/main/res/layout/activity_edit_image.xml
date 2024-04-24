@@ -11,48 +11,55 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"/>
 
-    <LinearLayout
-        android:id="@+id/bottomMenu"
+    <HorizontalScrollView
+        android:id="@+id/menuScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="@android:color/transparent">
+        android:background="@android:color/transparent"
+        android:scrollbars="none">
 
-        <!-- Botões para os métodos de processamento -->
-        <Button
-            android:id="@+id/btnGrayScale"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/bottomMenu"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tons de Cinza"/>
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnNegative"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Negativo"/>
+            <!-- Botões para os métodos de processamento -->
+            <Button
+                android:id="@+id/btnGrayScale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tons de Cinza"/>
 
-        <Button
-            android:id="@+id/btnSepia"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sépia"/>
+            <Button
+                android:id="@+id/btnNegative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Negativo"/>
 
-        <Button
-            android:id="@+id/btnBrightnessContrast"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Brilho e Contraste"/>
+            <Button
+                android:id="@+id/btnSepia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sépia"/>
 
-        <Button
-            android:id="@+id/btnEdgeDetection"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Detecção de Bordas"/>
-    </LinearLayout>
+            <!-- Botão para o ajuste de brilho -->
+
+            <!-- Botão para o ajuste de contraste -->
+            <Button
+                android:id="@+id/btnBrightness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brilho" />
+
+            <Button
+                android:id="@+id/btnContrast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contraste"/>
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
 </RelativeLayout>
